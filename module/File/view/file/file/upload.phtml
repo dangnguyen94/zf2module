@@ -3,5 +3,6 @@ $form = $this->form;
 $form->prepare();
 echo $this->form()->openTag($form);
 echo $this->formRow($form->get('file'));
+echo "<br>";
 echo $this->formInput($form->get('submit'));
 echo $this->form()->closeTag($form);

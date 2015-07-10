@@ -1,0 +1,12 @@
+<a href="file/upload">Upload new file</a>
+<br>
+<br>
+<br>
+<?php if($files) :?>
+	<?php foreach($files as $file):?>
+		
+		<a href="<?php echo $this->basePath('uploads/'.$file->getUrl()) ?>"><img src="<?php echo $this->basePath('uploads/'.$file->getThumbnail())?>" alt=""></a>
+	<?php endforeach;?>
+<?php else:?>
+	No data
+<?php endif;?>

@@ -4,10 +4,11 @@ namespace File\Form;
 
 use Zend\Form\Element;
 use Zend\Form\Form;
+use Doctrine\ORM\EntityManager;
 
 class UploadForm extends Form
 {
-	public function __construct()
+	public function __construct(EntityManager $em)
 	{
 		parent::__construct('form-upload');
 		$this->setAttribute('enctype','multipart/form-data');
@@ -28,7 +29,7 @@ class UploadForm extends Form
 			'attributes' => array(
 				'type' => 'submit',
 				'value' => 'Upload',
-				'class' => 'btn'
+				'class' => 'btn-primary'
 			)
 		));
 	}

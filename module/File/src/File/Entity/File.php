@@ -56,11 +56,16 @@ class File
     	// $urlArr = split("/", $this->url);
     	// $name = $urlArr[sizeof($urlArr)-1];
     	// $this->thumbnail = $name.'.jpg';
-        $this->thumbnail = $this->url.'.jpg';
-        $source = "/var/www/zf2module/public/uploads/".$this->url;
-    	//$this->genPdfThumbnail($this->url,$this->thumbnail);
-        $this->genPdfThumbnail($source,$this->thumbnail);
- 
+        $extend = pathinfo($this->url, PATHINFO_EXTENSION);
+        if ($extends == 'pdf') {
+            $this->thumbnail = $this->url.'.jpg';
+            $source = "/var/www/zf2module/public/uploads/".$this->url;
+            //$this->genPdfThumbnail($this->url,$this->thumbnail);
+            $this->genPdfThumbnail($source,$this->thumbnail);
+        } else {
+            $this->thumbnail = '';
+        }
+        
     }
 
     public function getThumbnail()

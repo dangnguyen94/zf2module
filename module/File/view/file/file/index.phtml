@@ -4,8 +4,15 @@
 <br>
 <?php if($files) :?>
 	<?php foreach($files as $file):?>
-		
-		<a href="<?php echo $this->basePath('uploads/'.$file->getUrl()) ?>"><img src="<?php echo $this->basePath('uploads/'.$file->getThumbnail())?>" alt=""></a>
+		<?php if ($file->getThumbnail()): ?>
+			<a href="<?php echo $this->basePath('uploads/'.$file->getUrl()) ?>"><img src="<?php echo $this->basePath('uploads/'.$file->getThumbnail())?>" alt=""></a>
+			<br>
+			<br>
+		<?php else:?>
+			<a href="<?php echo $this->basePath('uploads/'.$file->getUrl()) ?>"><img src="<?php echo $this->basePath('img/doc.png') ?>" alt=""></a>
+			<br>
+			<br>
+		<?php endif;?>
 	<?php endforeach;?>
 <?php else:?>
 	No data

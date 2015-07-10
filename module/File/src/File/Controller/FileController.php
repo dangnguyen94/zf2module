@@ -80,7 +80,14 @@ class FileController extends EntityController
 		return new ViewModel(array('form'=>$form));
 	}
 	
-
+	public function viewAction()
+	{
+		$id = $this->params('id');
+		$file = new File();
+		$file = $this->getEntityManager()->getRepository('File\Entity\File')->find($id);
+		
+		return new ViewModel(array('file'=>$file));
+	}
 	private function getBaseURL()
 	{
 		$uri = $this->getRequest()->getUri();
